@@ -50,11 +50,3 @@ def get_response_answer(response):
 	json_ = response.json()
 
 	return ''.join(json_['text'])
-
-
-
-if __name__ == '__main__':
-	text, from_lang, to_lang = None, 'ru', 'en'
-	# json_ = translate_it(text, from_lang, to_lang).json()
-	print(translate_it(text, from_lang, to_lang).status_code)
-	# print(json_)
