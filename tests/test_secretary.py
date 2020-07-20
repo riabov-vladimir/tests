@@ -33,5 +33,19 @@ class TestSecretary(unittest.TestCase):
 
 	def test_shelf_number(self):
 		with patch('app.input', return_value='10006'):
-			app.delete_doc()
+			self.assertEqual('2', app.get_doc_shelf())
+
+
+def suite():
+	tests = ['test_move_doc', 'test_add_new_document', 'test_delete_doc', 'test_add_shelf', 'test_shelf_number']
+
+	return unittest.TestSuite(map(TestSecretary, tests))
+
+
+if __name__ == '__main__':
+	suites = suite()
+	runner = unittest.TextTestRunner(verbosity=2)
+
+	testResult = runner.run(suites)
+
 
